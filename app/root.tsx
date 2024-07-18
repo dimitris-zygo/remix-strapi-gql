@@ -10,7 +10,7 @@ import client from "../client/urqlClient";
 import {json} from "@remix-run/node";
 import React from "react";
 
-export const GET_CONTACTS = `
+export const GET_PROMOTIONS = `
   query GetPromotions($locale: I18NLocaleCode) {
     promotions(locale: $locale) {
       data {
@@ -35,7 +35,7 @@ export type PromotionType = {
 export async function loader({request}) {
     const url = new URL(request.url);
     const locale = url.searchParams.get('locale') || 'en';
-    const result = await client.query(GET_CONTACTS, {
+    const result = await client.query(GET_PROMOTIONS, {
         locale,
     },{ requestPolicy: 'network-only' }).toPromise();
 

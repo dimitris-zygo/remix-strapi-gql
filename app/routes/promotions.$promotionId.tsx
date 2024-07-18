@@ -30,7 +30,7 @@ export async function loader({ params } :LoaderFunctionArgs){
 export default function Promotion() {
     const {promotion} = useLoaderData<typeof loader>() as PromotionType;
     const p = promotion.data.attributes;
-    
+
     return (
         <>
             <div id="contact">
